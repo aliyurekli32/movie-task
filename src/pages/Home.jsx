@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import Cards from "../components/Cards"
 import { saveUser } from "../store/auth-slice"
 import { useEffect } from "react"
+import FormFilm from "../components/FormFilm"
+
 
 
 const user1={
@@ -21,15 +23,16 @@ const Home = () => {
 
     useEffect(() => {
       
-    }, [data])
+    }, [])
     
 
     console.log(data)
   return (
     <div>
         <Cards/>
-        <button onClick={()=>dispatch(saveUser(user1))} >Veri gönder</button>
-        <button onClick={()=>getMovie()} >Get Movie</button>
+        <FormFilm/>
+        {/* <button onClick={()=>dispatch(saveUser(user1))} >Veri gönder</button>
+        <button onClick={()=>getMovie()} >Get Movie</button> */}
     </div>
   )
 }
