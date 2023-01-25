@@ -56,3 +56,21 @@
   .error{
     text-align: left;
   }
+
+  .c-mcard-text{
+  display: block;
+   
+    
+    
+  }
+
+  .ht{
+    height: 100px !important;
+    overflow-y: hidden;
+    text-overflow: ellipsis !important;
+  }
+
+  .star{
+    color: rgb(164, 164, 4);
+   
+  }
