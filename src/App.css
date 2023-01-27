@@ -1,6 +1,9 @@
 .card-image{
     height: 50vh !important;
 }
+.card-image-s{
+    height: 20vh !important;
+}
 
 .card-tit{
     margin-top: 5px !important;
