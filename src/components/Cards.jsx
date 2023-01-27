@@ -19,7 +19,7 @@ const Cards = () => {
   console.log(modalData)
   return (
     <Container >
-        <Row className="justify-content-center gap-2">
+        <Row className="justify-content-center gap-2 mt-2">
           {
             data.map((item)=>{
               return(
