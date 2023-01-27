@@ -1,5 +1,7 @@
 import {Button,Card} from 'react-bootstrap';
 import { BsStarFill,BsStarHalf } from 'react-icons/bs';
+import { deleteMovie } from '../store/movieData-Slice';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -7,9 +9,9 @@ import { BsStarFill,BsStarHalf } from 'react-icons/bs';
 
 
 
-const MCard = ({item}) => {
- const {Title,Poster,imdbRating,Year,Genre,Plot}=item
-
+const MCard = ({item,setModalShow,setModalData}) => {
+ const {Title,Poster,imdbRating,Year,Genre,Plot,imdbID}=item
+const dispatch=useDispatch()
 
 
 const arr_Rating=Array.from({length: Math.floor(Number(imdbRating))}, (_, i) => i + 1)
@@ -18,8 +20,8 @@ const arr_Rating=Array.from({length: Math.floor(Number(imdbRating))}, (_, i) => 
   return (
     <>
      <Card 
-       className='h-100 col-sm-12 col-md-6 col-lg-4 p-1'>
-      <Card.Img className='card-image' variant="top" src={Poster} />
+       className='h-100 col-sm-12 col-md-4 col-lg-3'>
+      <Card.Img className='card-image' variant="top" src={Poster==="N/A" ? "https://cdn.pixabay.com/photo/2016/04/14/07/50/film-1328405_960_720.jpg" : Poster} />
       
       <Card.Body >
       <div>
@@ -41,13 +43,13 @@ const arr_Rating=Array.from({length: Math.floor(Number(imdbRating))}, (_, i) => 
         <Card.Title className='card-tit' >{Title}</Card.Title>
         <div className='ht'>
         <Card.Text >
-         {Plot}
+         {Plot==="N/A" ? "This film doesn't have any description sorry.." : Plot}
         </Card.Text>
         </div>
         
-        <div >
-        <Button variant="primary">Update</Button>
-        <Button variant="danger">Delete</Button>
+        <div className='d-flex justify-content-center gap-1' >
+        <Button  onClick={() => {setModalShow(true);setModalData({Title,imdbRating,imdbID})}} variant="primary">Update</Button>
+        <Button onClick={()=>dispatch(deleteMovie(item))} variant="danger">Delete</Button>
         </div>
         
       </Card.Body>
