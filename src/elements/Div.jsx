@@ -12,6 +12,8 @@ const Div = styled.div`
   &:active{
     transform: scale(1.05)
   }
+  
+  
  
 
   /* The GitHub button is a primary button
@@ -21,5 +23,5 @@ const Div = styled.div`
     color: black;
     border: 2px solid blue;
   `} */
-`
+`;
 export default Div;
