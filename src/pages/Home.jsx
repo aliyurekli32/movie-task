@@ -3,28 +3,31 @@ import Cards from "../components/Cards"
 import FormFilm from "../components/FormFilm"
 import InputSearch from "../components/InputSearch"
 import SearchSelect from "../components/SelectSearch"
-import { uniqArr, uniqYear } from "../helper/functions"
+import { filterMovie, uniqArr, uniqYear } from "../helper/functions"
 import { useState } from "react"
+import { Button } from "react-bootstrap"
 
 
 
 
 const Home = () => {
+  const initiaValues={
+    imdbRating:"",
+    Title:"",
+    Year:"",
+    Genre:"",
+  }
     const dispatch=useDispatch()
     const {auth,movie,data}=useSelector(state=>state)
-    const [filterData,setFilterData]=useState({
-      imdbRating:"",
-      Title:"",
-      Year:"",
-      Genre:"",
-    })
+    const [filterData,setFilterData]=useState(initiaValues)
     const uniqGenre=uniqArr(data);
     const uniqYears=uniqYear(data)
-  
+    const filteredData=filterMovie(filterData,data);
+    
     
     
 
-   
+ 
   return (
     <div>
       <FormFilm/>
@@ -33,7 +36,10 @@ const Home = () => {
         <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqGenre={uniqGenre}/>
         <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqYears={uniqYears}/>
       </div>
-      <Cards/>
+      <div>
+      <Button onClick={()=>setFilterData(initiaValues)} style={{color:"red"}} variant="light">Clear Filter</Button>
+      </div>
+      <Cards filteredData={filteredData}/>
     </div>
   )
 }
