@@ -4,6 +4,7 @@ import FormFilm from "../components/FormFilm"
 import InputSearch from "../components/InputSearch"
 import SearchSelect from "../components/SelectSearch"
 import { uniqArr, uniqYear } from "../helper/functions"
+import { useState } from "react"
 
 
 
@@ -11,6 +12,12 @@ import { uniqArr, uniqYear } from "../helper/functions"
 const Home = () => {
     const dispatch=useDispatch()
     const {auth,movie,data}=useSelector(state=>state)
+    const [filterData,setFilterData]=useState({
+      imdbRating:"",
+      Title:"",
+      Year:"",
+      Genre:"",
+    })
     const uniqGenre=uniqArr(data);
     const uniqYears=uniqYear(data)
   
@@ -22,9 +29,9 @@ const Home = () => {
     <div>
       <FormFilm/>
       <div>
-        <InputSearch/>
-        <SearchSelect uniqGenre={uniqGenre}/>
-        <SearchSelect uniqYears={uniqYears}/>
+        <InputSearch filterData={filterData} setFilterData={setFilterData}/>
+        <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqGenre={uniqGenre}/>
+        <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqYears={uniqYears}/>
       </div>
       <Cards/>
     </div>
