@@ -16,7 +16,7 @@ const Cards = () => {
     imdbID: "",
   })
 
-  console.log(modalData)
+  
   return (
     <Container >
         <Row className="justify-content-center gap-2 mt-2">
