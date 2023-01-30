@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import Cards from "../components/Cards"
-import { saveUser } from "../store/auth-slice"
-import { useEffect } from "react"
 import FormFilm from "../components/FormFilm"
-import {addMovie} from "../store/movieData-Slice"
+import InputSearch from "../components/InputSearch"
+import SearchSelect from "../components/SelectSearch"
+import { uniqArr } from "../helper/functions"
 
 
 
@@ -11,7 +11,8 @@ import {addMovie} from "../store/movieData-Slice"
 const Home = () => {
     const dispatch=useDispatch()
     const {auth,movie,data}=useSelector(state=>state)
-
+    const uniqGenre=uniqArr(data);
+ 
     
     
 
@@ -19,6 +20,11 @@ const Home = () => {
   return (
     <div>
       <FormFilm/>
+      <div>
+        <InputSearch/>
+        <SearchSelect uniqGenre={uniqGenre}/>
+        <SearchSelect/>
+      </div>
       <Cards/>
     </div>
   )
