@@ -21,9 +21,9 @@ const Cards = () => {
     <Container >
         <Row className="justify-content-center gap-2 mt-2">
           {
-            data.map((item)=>{
+            data.map((item,index)=>{
               return(
-                <MCard setModalData={setModalData} setModalShow={setModalShow} item={item}/>
+                <MCard key={index} setModalData={setModalData} setModalShow={setModalShow} item={item}/>
               )
             })
           }
