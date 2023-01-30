@@ -25,17 +25,17 @@ const arr_Rating=Array.from({length: Math.floor(Number(imdbRating))}, (_, i) => 
       
       <Card.Body >
       <div>
-        {arr_Rating.map((item)=>{
+        {arr_Rating.map((item,index)=>{
           return(
-            <span><BsStarFill className='star'/></span>
+            <span key={index}><BsStarFill className='star'/></span>
           )
         })}
         {
           Number(imdbRating) % 1 !== 0 && !(isNaN(Number(imdbRating) % 1)) && <span><BsStarHalf className='star'/></span>
         }
         {
-          rest_Rating.map((item)=>{
-            return <span><BsStarFill/></span>
+          rest_Rating.map((item,index)=>{
+            return <span key={index}><BsStarFill/></span>
           })
         }
           
