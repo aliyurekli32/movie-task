@@ -24,7 +24,7 @@ const Modals = (props) => {
     const handleUpdate=()=>{
             dispatch(updateMovie(upData))
     }
-    console.log(upData)
+    
   return (
     <Modal
       {...props}
