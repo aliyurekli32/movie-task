@@ -37,7 +37,7 @@ const Home = () => {
         <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqYears={uniqYears}/>
       </div>
       <div>
-      <Button onClick={()=>setFilterData(initiaValues)} style={{color:"red"}} variant="light">Clear Filter</Button>
+      <Button onClick={()=>setFilterData(initiaValues)} style={{color:"white"}} variant="danger">Clear Filter</Button>
       </div>
       <Cards filteredData={filteredData}/>
     </div>
