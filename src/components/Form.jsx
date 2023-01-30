@@ -4,7 +4,7 @@ import * as Yup from 'yup';
  
  const Form = (props) => {
     const {firstName,lastName,email,password}=props
-    console.log(props)
+    
    const formik = useFormik({
      initialValues: {
        email: '',
@@ -30,7 +30,7 @@ import * as Yup from 'yup';
        alert(JSON.stringify(values, null, 2));
      },
    });
-   console.log(formik.values)
+  
    return (
     <div className="login-page">
    <div className="form">
