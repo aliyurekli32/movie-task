@@ -10,7 +10,7 @@ function App() {
 
   useEffect(()=>{
     window.localStorage.setItem("data",JSON.stringify(data))
-    console.log('data')
+   
   },[data])
   
   return (<>
