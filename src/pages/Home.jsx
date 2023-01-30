@@ -3,7 +3,7 @@ import Cards from "../components/Cards"
 import FormFilm from "../components/FormFilm"
 import InputSearch from "../components/InputSearch"
 import SearchSelect from "../components/SelectSearch"
-import { uniqArr } from "../helper/functions"
+import { uniqArr, uniqYear } from "../helper/functions"
 
 
 
@@ -12,7 +12,8 @@ const Home = () => {
     const dispatch=useDispatch()
     const {auth,movie,data}=useSelector(state=>state)
     const uniqGenre=uniqArr(data);
- 
+    const uniqYears=uniqYear(data)
+  
     
     
 
@@ -23,7 +24,7 @@ const Home = () => {
       <div>
         <InputSearch/>
         <SearchSelect uniqGenre={uniqGenre}/>
-        <SearchSelect/>
+        <SearchSelect uniqYears={uniqYears}/>
       </div>
       <Cards/>
     </div>
