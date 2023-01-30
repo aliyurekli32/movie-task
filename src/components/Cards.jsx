@@ -7,7 +7,8 @@ import { useState } from "react"
 
 
 
-const Cards = () => {
+const Cards = ({filteredData}) => {
+  console.log(filteredData)
   const {data}=useSelector(state => state)
   const [modalShow, setModalShow] = useState(false);
   const [modalData,setModalData]=useState({
@@ -21,7 +22,7 @@ const Cards = () => {
     <Container >
         <Row className="justify-content-center gap-2 mt-2">
           {
-            data.map((item,index)=>{
+            filteredData?.map((item,index)=>{
               return(
                 <MCard key={index} setModalData={setModalData} setModalShow={setModalShow} item={item}/>
               )
