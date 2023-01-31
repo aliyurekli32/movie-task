@@ -19,7 +19,8 @@ const Home = () => {
   }
     const dispatch=useDispatch()
     const {auth,movie,data}=useSelector(state=>state)
-    const [filterData,setFilterData]=useState(initiaValues)
+    const [filterData,setFilterData]=useState( ()=> {
+      return initiaValues})
     const uniqGenre=uniqArr(data);
     const uniqYears=uniqYear(data)
     const filteredData=filterMovie(filterData,data);
