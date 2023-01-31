@@ -1,5 +1,5 @@
 .card-image{
-    height: 50vh !important;
+    height: 40vh !important;
 }
 .card-image-s{
     height: 20vh !important;
@@ -11,4 +11,12 @@
     height: 26px;
     overflow-y: hidden;
     text-overflow: ellipsis;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.poster{
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
