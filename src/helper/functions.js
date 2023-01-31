@@ -33,11 +33,18 @@ export const uniqYear=(data)=>{
 }
 
 export const filterMovie =(filter,data)=>{
-  console.log(filter)
-  console.log(data)
+  
   const data1 = data.filter((item)=> filter.Year ? item.Year==filter.Year : item)
   const data2 = data1.filter((item)=> filter.imdbRating ? Math.floor(Number(item.imdbRating))==filter.imdbRating : item)
-  const data3 = data2.filter((item)=> filter.Title ? item.Title==filter.Title : item)
+  const data3 = data2.filter((item)=> 
+  {
+    if(item.Title.toLowerCase().includes(filter.Title.toLowerCase())){
+      return item
+    }else{
+      return
+    }
+    // filter.Title ? item.Title==filter.Title : item
+  })
   const data4 = data3.filter((item)=> {
     if(item.Genre.includes(filter.Genre)){
       return item
@@ -45,6 +52,7 @@ export const filterMovie =(filter,data)=>{
       return
     }
 
-  })
+  }).sort((a,b) => b.imdbRating-a.imdbRating).sort((a,b)=> b.Year-a.Year)
+  
   return data4
 }
