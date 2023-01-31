@@ -12,7 +12,7 @@ const movieDataSlice=createSlice({
         deleteMovie: (state,action)=>{
             
             
-            return state.filter((item)=>item.imdbID !== action.payload.imdbID);
+            return state.filter((item)=>item.imdbID !== action.payload);
             
             
         },
