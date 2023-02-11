@@ -23,7 +23,7 @@ Teknolojiler:
 • Create React App yada Angular.
 (webpack ve babel bilginiz varsa custom bir react boilerplate oluşturarak projeyi ayağa kaldırabilirsiniz)
 • TypeScript veya JavaScript.
-• Styled-Components veya Sass (scss)
+• Styled-Components veya Sass (scss).
 • State management olarak Redux veya Context Api
 • Uikit olarak, custom ui componentlerinizi oluşturabilir veya uikit component olarak MUI ya da antd
 kullanabilirsiniz.
