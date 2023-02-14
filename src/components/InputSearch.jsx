@@ -16,7 +16,7 @@ function InputSearch({filterData,setFilterData}) {
   return (
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Search Movie DB</Form.Label>
+        <Form.Label>Filter Movie DB</Form.Label>
         <Form.Control value={filterData.Title} onChange={(e)=>setFilterData({...filterData,Title: e.target.value})} type="text" placeholder="ice age" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
