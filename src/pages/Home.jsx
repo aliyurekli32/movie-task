@@ -11,6 +11,7 @@ import { Button } from "react-bootstrap"
 
 
 const Home = () => {
+  const[fToggle,setFToggle]=useState(true)
   const initiaValues={
     imdbRating:"",
     Title:"",
@@ -32,14 +33,24 @@ const Home = () => {
   return (
     <div>
       <FormFilm/>
-      <div>
-        <InputSearch filterData={filterData} setFilterData={setFilterData}/>
-        <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqGenre={uniqGenre}/>
-        <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqYears={uniqYears}/>
-      </div>
-      <div>
-      <Button onClick={()=>setFilterData(initiaValues)} style={{color:"white"}} variant="danger">Clear Filter</Button>
-      </div>
+      <Button onClick={()=>setFToggle(!fToggle)} >Filter {fToggle ? "hide" :"show"}</Button>
+      {
+        fToggle===false 
+        ? "" 
+        : 
+        <>
+          <div>
+          <InputSearch filterData={filterData} setFilterData={setFilterData}/>
+          <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqGenre={uniqGenre}/>
+          <SearchSelect filterData={filterData} setFilterData={setFilterData} uniqYears={uniqYears}/>
+          </div>
+          <div>
+          <Button onClick={()=>setFilterData(initiaValues)} style={{color:"white"}} variant="danger">Clear Filter</Button>
+          </div>
+        </> 
+      }
+      
+      
       <Cards filteredData={filteredData}/>
     </div>
   )
