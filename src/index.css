@@ -55,6 +55,9 @@
 
   .error{
     text-align: left;
+    font-size: 12px;
+    color: red;
+    margin-top: -18px;
   }
 
   .c-mcard-text{
