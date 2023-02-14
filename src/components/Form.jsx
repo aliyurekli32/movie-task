@@ -1,10 +1,17 @@
 
 import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+import { saveUser } from '../store/auth-slice';
+import { useNavigate } from 'react-router-dom';
  
  const Form = (props) => {
     const {firstName,lastName,email,password}=props
-    
+    const dispatch=useDispatch();
+    const users=useSelector(state=> state.auth);
+    const navigate=useNavigate()
+
+
    const formik = useFormik({
      initialValues: {
        email: '',
@@ -27,13 +34,30 @@ import * as Yup from 'yup';
             .required('Required')}),
      }),
      onSubmit: values => {
-       alert(JSON.stringify(values, null, 2));
+      if(!formik.values.firstName){
+         
+          users.filter((item)=>{
+            if(item.email===formik.values.email && item.password===formik.values.password){
+              navigate("/")
+              
+            }
+            
+          })
+      }else{
+        dispatch(saveUser(formik.values))
+      }
+      
+      
+        formik.resetForm()
      },
    });
-  
+   
+
+
+   console.log(users)
    return (
     <div className="login-page">
-   <div className="form">
+   <div  className="form">
      <form className="register-form" onSubmit={formik.handleSubmit}>
       {
         firstName && <>
@@ -60,7 +84,7 @@ import * as Yup from 'yup';
          value={formik.values.lastName}
        />
        {formik.touched.lastName && formik.errors.lastName ? (
-         <div>{formik.errors.lastName}</div>
+         <div className='error'>{formik.errors.lastName}</div>
        ) : null}
         </>
       }
@@ -76,7 +100,7 @@ import * as Yup from 'yup';
          value={formik.values.email}
        />
        {formik.touched.email && formik.errors.email ? (
-         <div>{formik.errors.email}</div>
+         <div className='error'>{formik.errors.email}</div>
        ) : null}
 
     <label htmlFor="password">Password</label>
@@ -89,7 +113,7 @@ import * as Yup from 'yup';
          value={formik.values.password}
        />
        {formik.touched.password && formik.errors.password ? (
-         <div>{formik.errors.password}</div>
+         <div className='error'>{formik.errors.password}</div>
        ) : null}
  
        <button type="submit">Submit</button>
