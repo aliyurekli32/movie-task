@@ -3,8 +3,17 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Button } from "react-bootstrap";
+import useAuth from "../helper/zustand";
 
 const NavbarR = () => {
+  const user=useAuth(state=>state.user)
+  const removeUser=useAuth(state=>state.removeUser)
+  const removeAuth=useAuth(state=>state.removeAuth)
+
+  const handleLogout = ()=>{
+      removeUser();
+      removeAuth();
+  }
   return (
     <Navbar
       collapseOnSelect
@@ -24,7 +33,20 @@ const NavbarR = () => {
               <Button>Home</Button>
             </Link>
           </Nav>
+          {user.firstName && <Nav className="me-auto">
+           
+           <Button className="btn-success" style={{width:"20vw"}} >{user.firstName}</Button>
+         
+       </Nav>}
+          
           <Nav>
+            {
+              Object.keys(user).length > 0 ? <Link
+              className="m-1"
+              to="/"
+            >
+              <Button onClick={handleLogout} >Logout</Button>
+            </Link> : <>
             <Link
               className="m-1"
               to="/register"
@@ -36,8 +58,10 @@ const NavbarR = () => {
               to="/login"
               eventkey={2}
             >
-              <Button>Login</Button>
+              <Button >Login</Button>
             </Link>
+            </>
+            } 
           </Nav>
         </Navbar.Collapse>
       </Container>
