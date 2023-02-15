@@ -11,9 +11,9 @@ import { Button } from "react-bootstrap"
 
 
 
+
 const Home = () => {
-  
-  
+ 
   const[fToggle,setFToggle]=useState(true)
   const initiaValues={
     imdbRating:"",
@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <div>
       <FormFilm/>
-      <Button onClick={()=>setFToggle(!fToggle)} >Filter {fToggle ? "hide" :"show"}</Button>
+      <Button className="mt-2" onClick={()=>setFToggle(!fToggle)} >Filter {fToggle ? "hide" :"show"}</Button>
       {
         fToggle===false 
         ? "" 
@@ -54,7 +54,7 @@ const Home = () => {
       }
       
       
-      <Cards filteredData={filteredData}/>
+      <Cards  filteredData={filteredData}/>
     </div>
   )
 }
