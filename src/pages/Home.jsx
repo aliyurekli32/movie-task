@@ -10,7 +10,10 @@ import { Button } from "react-bootstrap"
 
 
 
+
 const Home = () => {
+  
+  
   const[fToggle,setFToggle]=useState(true)
   const initiaValues={
     imdbRating:"",
