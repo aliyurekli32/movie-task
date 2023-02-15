@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { saveUser } from '../store/auth-slice';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../helper/zustand';
  
  const Form = (props) => {
+    const setAuth=useAuth(state=>state.setAuth)
     const {firstName,lastName,email,password}=props
     const dispatch=useDispatch();
     const users=useSelector(state=> state.auth);
@@ -38,8 +40,8 @@ import { useNavigate } from 'react-router-dom';
          
           users.filter((item)=>{
             if(item.email===formik.values.email && item.password===formik.values.password){
-              navigate("/")
-              
+              setAuth();
+              navigate("/"); 
             }
             
           })
