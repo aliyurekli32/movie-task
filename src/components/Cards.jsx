@@ -8,7 +8,6 @@ import { useState } from "react"
 
 
 const Cards = ({filteredData}) => {
-  console.log(filteredData)
   const {data}=useSelector(state => state)
   const [modalShow, setModalShow] = useState(false);
   const [modalData,setModalData]=useState({
