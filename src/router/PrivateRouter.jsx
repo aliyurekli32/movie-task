@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
+import useAuth from "../helper/zustand";
 
 
 
 const PrivateRouter = () => {
-  let auth=true;
+  const auth=useAuth(state=>state.authZus)
   
   return auth ? <Outlet/> : <Navigate to="/" />  
    
