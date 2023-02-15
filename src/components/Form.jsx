@@ -8,6 +8,7 @@ import useAuth from '../helper/zustand';
  
  const Form = (props) => {
     const setAuth=useAuth(state=>state.setAuth)
+    const setUser=useAuth(state=>state.setUser)
     const {firstName,lastName,email,password}=props
     const dispatch=useDispatch();
     const users=useSelector(state=> state.auth);
@@ -41,6 +42,7 @@ import useAuth from '../helper/zustand';
           users.filter((item)=>{
             if(item.email===formik.values.email && item.password===formik.values.password){
               setAuth();
+              setUser(item)
               navigate("/"); 
             }
             
@@ -56,7 +58,7 @@ import useAuth from '../helper/zustand';
    
 
 
-   console.log(users)
+
    return (
     <div className="login-page">
    <div  className="form">
