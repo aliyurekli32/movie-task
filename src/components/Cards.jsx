@@ -18,7 +18,7 @@ const Cards = ({filteredData}) => {
 
   
   return (
-    <Container >
+    <Container className="mt-4" >
         <Row className="justify-content-center gap-2 mt-2">
           {
             filteredData?.map((item,index)=>{
