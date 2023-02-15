@@ -19,7 +19,7 @@ const FormFilm = () => {
     
 
 
-<div  className="d-flex w-100  justify-content-evenly align-items-center">
+<div  className="d-flex w-100  justify-content-abroad align-items-center">
   <div className='w-50 '>
     <Form onSubmit={handleFilm} >
 <Form.Label htmlFor="search-film">Search Film  </Form.Label>
@@ -35,7 +35,8 @@ const FormFilm = () => {
 <Button className='btn btn-info ms-2 mt-2' type='submit'>Search Film</Button>
 <Button onClick={()=>dispatch(addMovie(movie.movie))} className='btn btn-success ms-2 mt-2' type='button'>Add Film</Button>
 </Form></div>
-<div className='w-25 '>{Object.keys(movie.movie).length > 0 && <SCard item={movie.movie} />} </div>
+<div className='w-50 d-flex justify-content-end' ><div className='w-50 '>{Object.keys(movie.movie).length > 0 && <SCard item={movie.movie} />} </div></div>
+
 
 </div>
 
