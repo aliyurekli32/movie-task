@@ -10,6 +10,10 @@ const NavbarR = () => {
   const removeUser=useAuth(state=>state.removeUser)
   const removeAuth=useAuth(state=>state.removeAuth)
 
+  const check=(user)=>{
+    return Object.keys(user).length
+  }
+
   const handleLogout = ()=>{
       removeUser();
       removeAuth();
