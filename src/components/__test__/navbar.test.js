@@ -18,6 +18,11 @@ describe("go to wanted page",()=>{
         const buttonElHome = screen.getByText(/Home/i);
         expect(buttonElHome).toBeInTheDocument();
     });
+    it("it should render Home", ()=>{
+        render(<MockFilmNavbar/>);
+        const buttonElHome = screen.getByRole("button",{name:"Home"});
+        expect(buttonElHome).toBeEnabled();
+    });
     
 
 })
