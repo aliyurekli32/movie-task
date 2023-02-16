@@ -23,6 +23,17 @@ describe("go to wanted page",()=>{
         const buttonElHome = screen.getByRole("button",{name:"Home"});
         expect(buttonElHome).toBeEnabled();
     });
-    
+    it("it should render Login", ()=>{
+        render(<MockFilmNavbar/>);
+        const buttonElLogin = screen.getByRole("button",{name:"Login"});
+        userEvent.click(buttonElLogin);
+        expect(window.location.href).toBe("http://localhost/login")
+    });
+    it("it should render Register", ()=>{
+        render(<MockFilmNavbar/>);
+        const buttonElRegister = screen.getByRole("button",{name:"Register"});
+        userEvent.click(buttonElRegister);
+        expect(window.location.href).toBe("http://localhost/register")
+    });
 
 })
